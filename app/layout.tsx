@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import MainNavigation from "@/app/ui/main-navigation";
+import PrimaryNavigation from "@/app/ui/primary-navigation";
+import Footer from "@/app/ui/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const smSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -19,10 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <MainNavigation/>
+      <body className={`${smSans.className} antialiased bg-slate-100`}>
+        <PrimaryNavigation />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );

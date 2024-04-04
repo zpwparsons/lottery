@@ -1,7 +1,7 @@
 'use client';
 
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline'
-import LotteryLogo from "@/app/ui/lottery-logo";
+import LotteryLogoColored from "@/app/ui/lottery-logo-colored";
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const links = [
     { name: 'Set For Life', href: '/set-for-life' },
 ];
 
-export default function MainNavigation() {
+export default function PrimaryNavigation() {
     const pathname = usePathname();
 
     const [menuIsOpen, setMenuOpenState] = useState(false);
@@ -23,10 +23,10 @@ export default function MainNavigation() {
     };
 
     return (
-        <section className="items-center border-b border-slate-900">
-            <div className="px-4 xl:px-0 max-w-7xl mx-auto py-5 flex items-center justify-between">
+        <section className="bg-white border-b border-slate-900">
+            <div className="px-4 xl:px-0 max-w-7xl mx-auto py-4 flex items-center justify-between">
                 <div className="min-w-0 flex-1">
-                    <LotteryLogo />
+                    <LotteryLogoColored />
                 </div>
 
                 <div>
@@ -57,7 +57,7 @@ export default function MainNavigation() {
 
             {/* Mobile Navigation */}
             {menuIsOpen && (
-                <nav className="absolute w-full bg-white border-y border-slate-900 block md:hidden">
+                <nav className="absolute w-full bg-white border-y border-slate-900 block md:hidden z-10">
                     <ul className="p-1.5 divide-y divide-slate-200">
                         {links.map((link) => {
                             return (

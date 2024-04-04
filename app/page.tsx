@@ -1,9 +1,8 @@
-import MainNavigation from "@/app/ui/main-navigation";
+import PrimaryNavigation from "@/app/ui/primary-navigation";
 
 export default function Home() {
   return (
     <main>
-        <MainNavigation />
         Home
     </main>
   );
