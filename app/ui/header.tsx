@@ -16,7 +16,7 @@ export default function Header({
         'blue': 'bg-sky-200',
         'purple': 'bg-violet-100',
         'yellow': 'bg-yellow-50',
-    }[color || 'yellow'];
+    }[color || 'green'];
 
     return (
         <div className={`relative h-[272px] ${bannerColor} border-b-4 border-slate-900 overflow-hidden`}>
