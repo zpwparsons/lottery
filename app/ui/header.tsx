@@ -19,7 +19,7 @@ export default function Header({
     }[color] || 'bg-green-100';
 
     return (
-        <div className={`relative h-[272px] ${bannerColor} border-b-4 border-slate-900 overflow-hidden`}>
+        <header className={`relative h-[272px] ${bannerColor} border-b-4 border-slate-900 overflow-hidden`}>
             <div className="absolute top-0 left-0 w-full h-full hidden md:block">
                 <BackgroundPattern />
             </div>
@@ -39,6 +39,6 @@ export default function Header({
             <div className="absolute top-0 right-0 w-full h-full hidden md:block transform scale-x-[-1]">
                 <BackgroundPattern />
             </div>
-        </div>
+        </header>
     );
 }
