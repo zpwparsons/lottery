@@ -1,4 +1,4 @@
-import Banner from '../ui/banner';
+import Header from '../ui/header';
 import SecondaryNavigation from "@/app/ui/secondary-navigation";
 
 const navigationLinks = [
@@ -14,7 +14,7 @@ const navigationLinks = [
 export default function UkLottoPage() {
     return (
         <main>
-            <Banner
+            <Header
                 title="UK Lotto"
                 subtitle="Check the Latest UK Lotto Numbers Here"
                 color="green"

@@ -6,7 +6,7 @@ interface LotteryLogoProps {
     color: 'green' | 'blue' | 'purple' | 'yellow';
 }
 
-export default function LotteryLogo({
+export default function Header({
     title,
     subtitle,
     color,

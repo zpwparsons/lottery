@@ -1,4 +1,4 @@
-import Banner from "@/app/ui/banner";
+import Header from "@/app/ui/header";
 import SecondaryNavigation from "@/app/ui/secondary-navigation";
 
 const navigationLinks = [
@@ -14,7 +14,7 @@ const navigationLinks = [
 export default function SetForLifePage() {
     return (
         <main>
-            <Banner
+            <Header
                 title="Set for Life"
                 subtitle="Check the Latest UK Lotto Numbers Here"
                 color="yellow"
