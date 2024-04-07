@@ -60,7 +60,7 @@ export default function LotteryPrizeTable() {
     const drawDate = moment(data.draw_date);
 
     return (
-        <Card className="p-0">
+        <div className="border-t border-r border-b-2 border-l-2 border-slate-900 rounded-lg">
             <div className="bg-green-50 rounded-t-lg border-b flex items-center justify-between p-8">
                 <div>
                     <p className="text-lg">{drawDate.format('dddd')}</p>
@@ -123,6 +123,6 @@ export default function LotteryPrizeTable() {
                     </tbody>
                 </table>
             </div>
-        </Card>
+        </div>
     );
 }
