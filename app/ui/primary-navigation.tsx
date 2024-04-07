@@ -5,6 +5,7 @@ import LotteryLogoColored from "@/app/ui/lottery-logo-colored";
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
+import clsx from "clsx";
 
 const links = [
     { name: 'UK Lotto', href: '/uk-lotto' },
@@ -37,7 +38,10 @@ export default function PrimaryNavigation() {
                                 return (
                                     <li
                                         key={link.name}
-                                        className={`font-bold px-2 py-3 hover:text-blue-500 hover:translate-y-px ${pathname === link.href ? 'text-blue-500' : 'text-slate-900'}`}
+                                        className={clsx(
+                                            'font-bold px-2 py-3 hover:text-blue-500 hover:translate-y-px',
+                                            { 'text-blue-500': pathname === link.href },
+                                        )}
                                     >
                                         <Link href={link.href}>
                                             { link.name }
@@ -50,7 +54,7 @@ export default function PrimaryNavigation() {
 
                     {/* Mobile Navigation Toggle */}
                     <button onClick={toggleMenu} type="button" className="p-1.5 block md:hidden">
-                        <EllipsisHorizontalIcon className="h-10 w-10 text-slate-900" />
+                        <EllipsisHorizontalIcon className="h-10 w-10" />
                     </button>
                 </div>
             </div>
@@ -63,7 +67,10 @@ export default function PrimaryNavigation() {
                             return (
                                 <li
                                     key={link.name}
-                                    className={`font-bold px-2 py-3 hover:text-blue-500 ${pathname === link.href ? 'text-blue-500' : 'text-slate-900'}`}
+                                    className={clsx(
+                                        'font-bold px-2 py-3 hover:text-blue-500',
+                                        { 'text-blue-500': pathname === link.href },
+                                    )}
                                 >
                                     <Link href={link.href} onClick={toggleMenu}>
                                         {link.name}

@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+import clsx from "clsx";
 
 interface Link {
     name: string;
@@ -23,7 +24,10 @@ export default function SecondaryNavigation({
                         return (
                             <li
                                 key={link.name}
-                                className={`font-bold px-2 py-3 hover:text-blue-500 text-nowrap ${pathname === link.href ? 'text-blue-500' : 'text-slate-900'}`}
+                                className={clsx(
+                                    'font-bold px-2 py-3 hover:text-blue-500 text-nowrap',
+                                    { 'text-blue-500': pathname === link.href },
+                                )}
                             >
                                 <Link href={link.href}>
                                     {link.name}

@@ -1,0 +1,30 @@
+import React from "react";
+import clsx from 'clsx';
+
+interface CardProps {
+    children: React.ReactNode;
+    color?: 'yellow' | 'white';
+    hoverable?: boolean,
+}
+
+export default function Card({
+     children,
+     color = 'white',
+     hoverable = false,
+ }: CardProps) {
+    const backgroundColor: string = {
+        'yellow': 'bg-yellow-50',
+        'white': 'bg-white',
+    }[color];
+
+    return (
+        <div
+            className={clsx(
+                `${backgroundColor} border-t border-r border-b-2 border-l-2 border-slate-900 rounded-lg p-8`,
+                { 'hover:border-b-[3px] hover:border-l-[3px] hover:border-red-800 cursor-pointer': hoverable },
+            )}
+        >
+            {children}
+        </div>
+    );
+}
