@@ -1,7 +1,6 @@
-import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { formatCurrency, formatCurrencyForHumans } from "@/app/lib/utils";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import Circle from "@/app/ui/circle";
-import Card from "@/app/ui/card";
 import moment from "moment";
 import React from "react";
 
