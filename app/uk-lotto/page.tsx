@@ -3,6 +3,7 @@ import NextLotteryDraw from "@/app/ui/next-lottery-draw";
 import HowToPlay from "@/app/ui/how-to-play";
 import QuickPick from "@/app/ui/quick-pick";
 import Header from '../ui/header';
+import LotteryPrizeTable from "@/app/ui/lottery-prize-table";
 
 const navigationLinks = [
     { name: 'UK Lotto', href: '/uk-lotto' },
@@ -37,7 +38,7 @@ export default function UkLottoPage() {
                 </h4>
 
                 <div className="mt-4 sm:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
-                    <main className="col-span-2 lg:col-span-4">
+                    <main className="col-span-2 lg:col-span-4 space-y-5">
                         <p className="leading-6">
                             Welcome to LotteryUK.com&apos;s UK Lotto numbers page. Here, you&apos;ll find the latest
                             results from the UK Lotto draw, including the winning numbers and prize breakdowns. The UK
@@ -58,6 +59,8 @@ export default function UkLottoPage() {
                             informed and improve your chances of winning with LotteryUK.com&apos;s UK Lotto numbers
                             page. Remember to play responsibly.
                         </p>
+
+                        <LotteryPrizeTable />
                     </main>
 
                     <aside className="mt-5 sm:mt-0 col-span-2 space-y-5">

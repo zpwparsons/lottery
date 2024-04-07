@@ -68,7 +68,7 @@ function RandomNumberRow({ timestamp }: { timestamp: number }) {
             <ul className="flex space-x-1.5">
                 {randomNumbers.map((randomNumber: number, randomNumberIdx: number) => (
                     <li key={randomNumberIdx}>
-                        <Circle size="sm">{randomNumber}</Circle>
+                        <Circle size="xs">{randomNumber}</Circle>
                     </li>
                 ))}
             </ul>

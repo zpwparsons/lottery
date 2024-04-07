@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
-import "./globals.css";
 import PrimaryNavigation from "@/app/ui/primary-navigation";
+import { DM_Sans } from "next/font/google";
 import Footer from "@/app/ui/footer";
+import type { Metadata } from "next";
+import React from "react";
+import "./globals.css";
 
 const smSans = DM_Sans({ subsets: ["latin"] });
 

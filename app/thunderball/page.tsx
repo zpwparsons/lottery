@@ -3,6 +3,7 @@ import SecondaryNavigation from "@/app/ui/secondary-navigation";
 import NextLotteryDraw from "@/app/ui/next-lottery-draw";
 import HowToPlay from "@/app/ui/how-to-play";
 import QuickPick from "@/app/ui/quick-pick";
+import LotteryPrizeTable from "@/app/ui/lottery-prize-table";
 
 const navigationLinks = [
     { name: 'Thunderball', href: '/thunderball' },
@@ -37,7 +38,7 @@ export default function ThunderballPage() {
                 </h4>
 
                 <div className="mt-4 sm:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
-                    <main className="col-span-2 lg:col-span-4">
+                    <main className="col-span-2 lg:col-span-4 space-y-5">
                         <p className="leading-6">
                             Are you looking for the latest Thunderball numbers? Look no further than LotteryUK.com! We
                             provide the most recent Thunderball numbers as soon as they are drawn. Simply check our
@@ -48,6 +49,8 @@ export default function ThunderballPage() {
                             of winning. Don&apos;t miss out on your chance to win big with Thunderball. Check the latest
                             numbers and prize breakdowns on LotteryUK.com today.
                         </p>
+
+                        <LotteryPrizeTable/>
                     </main>
 
                     <aside className="mt-5 sm:mt-0 col-span-2 space-y-5">

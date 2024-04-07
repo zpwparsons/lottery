@@ -25,9 +25,10 @@ export default function NextLotteryDraw({
 }: NextLotteryDrawProps) {
     const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
-    const dateForHumans: string = moment(nextDrawDate).format('MMMM Do, YYYY');
-    const dayName: string = moment(nextDrawDate).format('dddd');
-    const date: string = moment().format('YYYY-MM-DD');
+    const drawDate = moment(nextDrawDate);
+    const dateForHumans: string = drawDate.format('MMMM Do, YYYY');
+    const dayName: string = drawDate.format('dddd');
+    const date: string = drawDate.format('YYYY-MM-DD');
 
     function calculateTimeLeft(): TimeLeft {
         const difference = moment.duration(moment(nextDrawDate).diff(new Date()));
@@ -71,37 +72,29 @@ export default function NextLotteryDraw({
                     <dt>Game closes in</dt>
                     <dd className="mt-2">
                         <div className="flex items-center justify-between space-x-2">
-                            <Circle>
-                                <div className="flex-col">
-                                    <p className="font-bold text-2xl text-red-800">
-                                        {timeLeft.days.toString().padStart(2, '0')}
-                                    </p>
-                                    <p className="-mt-1 text-sm">Days</p>
-                                </div>
+                            <Circle className="flex-col">
+                                <p className="font-bold text-2xl text-red-800">
+                                    {timeLeft.days.toString().padStart(2, '0')}
+                                </p>
+                                <p className="-mt-1 text-sm">Days</p>
                             </Circle>
-                            <Circle>
-                                <div className="flex-col">
-                                    <p className="font-bold text-2xl text-red-800">
-                                        {timeLeft.hours.toString().padStart(2, '0')}
-                                    </p>
-                                    <p className="-mt-1 text-sm">Hours</p>
-                                </div>
+                            <Circle className="flex-col">
+                                <p className="font-bold text-2xl text-red-800">
+                                    {timeLeft.hours.toString().padStart(2, '0')}
+                                </p>
+                                <p className="-mt-1 text-sm">Hours</p>
                             </Circle>
-                            <Circle>
-                                <div className="flex-col">
-                                    <p className="font-bold text-2xl text-red-800">
-                                        {timeLeft.minutes.toString().padStart(2, '0')}
-                                    </p>
-                                    <p className="-mt-1 text-sm">Minutes</p>
-                                </div>
+                            <Circle className="flex-col">
+                                <p className="font-bold text-2xl text-red-800">
+                                    {timeLeft.minutes.toString().padStart(2, '0')}
+                                </p>
+                                <p className="-mt-1 text-sm">Minutes</p>
                             </Circle>
-                            <Circle>
-                                <div className="flex-col">
-                                    <p className="font-bold text-2xl text-red-800">
-                                        {timeLeft.seconds.toString().padStart(2, '0')}
-                                    </p>
-                                    <p className="-mt-1 text-sm">Seconds</p>
-                                </div>
+                            <Circle className="flex-col">
+                                <p className="font-bold text-2xl text-red-800">
+                                    {timeLeft.seconds.toString().padStart(2, '0')}
+                                </p>
+                                <p className="-mt-1 text-sm">Seconds</p>
                             </Circle>
                         </div>
                     </dd>
@@ -109,7 +102,7 @@ export default function NextLotteryDraw({
             </dl>
 
             <div className="mt-10">
-                <Button type='button' color="blue">
+                <Button type="button" color="blue">
                     Play Now <ChevronRightIcon className="h-5 w-5" />
                 </Button>
             </div>
