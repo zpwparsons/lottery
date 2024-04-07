@@ -61,7 +61,7 @@ export default function ThunderballPage() {
 
                         <HowToPlay steps={howToPlaySteps}/>
 
-                        <QuickPick/>
+                        <QuickPick randomNumberCount={6}/>
                     </aside>
                 </div>
             </section>

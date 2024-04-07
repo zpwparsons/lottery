@@ -63,7 +63,7 @@ export default function EuroMillionsPage() {
 
                         <HowToPlay steps={howToPlaySteps}/>
 
-                        <QuickPick/>
+                        <QuickPick randomNumberCount={7}/>
                     </aside>
                 </div>
             </section>

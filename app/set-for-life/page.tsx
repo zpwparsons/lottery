@@ -64,7 +64,7 @@ export default function SetForLifePage() {
 
                         <HowToPlay steps={howToPlaySteps}/>
 
-                        <QuickPick/>
+                        <QuickPick randomNumberCount={6}/>
                     </aside>
                 </div>
             </section>

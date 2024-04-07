@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowPathIcon } from "@heroicons/react/20/solid";
+import { ArrowPathIcon, CheckIcon } from "@heroicons/react/20/solid";
 import SnookerBalls from "@/app/ui/snooker-balls";
 import { useState, useEffect } from "react";
 import Button from "@/app/ui/button";
@@ -9,7 +9,13 @@ import Card from "@/app/ui/card";
 
 const quickPicks: number[] = [1, 2, 3, 4, 5];
 
-export default function QuickPick() {
+interface QuickPickProps {
+    randomNumberCount?: number,
+}
+
+export default function QuickPick({
+    randomNumberCount = 5,
+}: QuickPickProps) {
     const [activeQuickPick, setActiveQuickPick] = useState<number>(quickPicks[0]);
     const [timestamp, setTimestamp] = useState<number>(Date.now());
 
@@ -41,14 +47,26 @@ export default function QuickPick() {
 
             <div className="pt-6 pb-4 divide-y divide-slate-200 font-bold">
                 {[...Array(activeQuickPick)].map((_, rowIdx: number) => (
-                    <RandomNumberRow key={rowIdx} timestamp={timestamp} />
+                    <RandomNumberRow
+                        key={rowIdx}
+                        timestamp={timestamp}
+                        randomNumberCount={randomNumberCount}
+                    />
                 ))}
             </div>
         </Card>
     )
 }
 
-function RandomNumberRow({ timestamp }: { timestamp: number }) {
+interface RandomNumberRowProps {
+    timestamp: number,
+    randomNumberCount?: number,
+}
+
+function RandomNumberRow({
+    timestamp,
+    randomNumberCount = 5,
+}: RandomNumberRowProps) {
     const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
     const [copied, setCopied] = useState<boolean>(false);
 
@@ -59,7 +77,7 @@ function RandomNumberRow({ timestamp }: { timestamp: number }) {
     }
 
     useEffect(() : void => {
-        setRandomNumbers(Array.from({length: 6}, () => Math.floor(Math.random() * 99) + 1));
+        setRandomNumbers(Array.from({length: randomNumberCount}, () => Math.floor(Math.random() * 59) + 1));
         setCopied(false);
     }, [timestamp]);
 
@@ -68,13 +86,17 @@ function RandomNumberRow({ timestamp }: { timestamp: number }) {
             <ul className="flex space-x-1.5">
                 {randomNumbers.map((randomNumber: number, randomNumberIdx: number) => (
                     <li key={randomNumberIdx}>
-                        <Circle size="xs">{randomNumber}</Circle>
+                        <Circle color={randomNumberIdx < 5 ? 'white' : 'purple'} size="xs">
+                            {randomNumber}
+                        </Circle>
                     </li>
                 ))}
             </ul>
 
             {copied ? (
-                <span className="text-sm text-green-700">Copied</span>
+                <span className="text-sm text-green-700">
+                    <CheckIcon className="h-5 w-5" />
+                </span>
             ) : (
                 <button onClick={copyToClipboard} type="button" className="h-5 w-5">
                     <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
