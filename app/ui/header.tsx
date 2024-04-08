@@ -3,7 +3,7 @@ import BackgroundPattern from "@/app/ui/background-pattern";
 interface HeaderProps {
     title: string;
     subtitle: string;
-    color: 'green' | 'blue' | 'purple' | 'yellow';
+    color: 'green' | 'blue' | 'purple' | 'yellow' | 'red';
 }
 
 export default function Header({
@@ -16,6 +16,7 @@ export default function Header({
         'blue': 'bg-sky-200',
         'purple': 'bg-violet-100',
         'yellow': 'bg-yellow-50',
+        'red': 'bg-red-50',
     }[color];
 
     return (

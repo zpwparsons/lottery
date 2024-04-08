@@ -12,6 +12,7 @@ const links = [
     { name: 'EuroMillions', href: '/euro-millions' },
     { name: 'Thunderball', href: '/thunderball' },
     { name: 'Set For Life', href: '/set-for-life' },
+    { name: 'Previous Draws', href: '/previous-draws' },
 ];
 
 export default function PrimaryNavigation() {
@@ -32,7 +33,7 @@ export default function PrimaryNavigation() {
 
                 <div>
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:block">
+                    <nav className="hidden lg:block">
                         <ul className="flex space-x-2 p-1.5">
                             {links.map((link) => {
                                 return (
@@ -53,7 +54,7 @@ export default function PrimaryNavigation() {
                     </nav>
 
                     {/* Mobile Navigation Toggle */}
-                    <button onClick={toggleMenu} type="button" className="p-1.5 block md:hidden">
+                    <button onClick={toggleMenu} type="button" className="p-1.5 block lg:hidden">
                         <EllipsisHorizontalIcon className="h-10 w-10" />
                     </button>
                 </div>
