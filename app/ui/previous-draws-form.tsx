@@ -124,7 +124,7 @@ export default function PreviousDrawsForm() {
                         ))}
 
                         {/* Empty State */}
-                        {!results.length && (
+                        {!results?.length && (
                             <tr>
                                 <td colSpan={4}>
                                     <div className="flex h-[30rem] flex-col items-center justify-center">
@@ -135,7 +135,7 @@ export default function PreviousDrawsForm() {
                         )}
 
                         {/* Results */}
-                        {Boolean(results.length) && results.map((result: Result, resultIdx: number) => (
+                        {Boolean(results?.length) && results?.map((result: Result, resultIdx: number) => (
                             <tr key={resultIdx} className={resultIdx % 2 === 0 ? 'bg-slate-50' : ''}>
                                 <th className="py-4 pl-8 text-left">{result.lottery_name}</th>
                                 <td className="py-4">{result.draw_date}</td>
