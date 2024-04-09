@@ -36,12 +36,16 @@ export default function PreviousDrawsForm() {
         setResults([]);
         setError(null);
 
-        axios.post('https://global-winning-numbers-check.vercel.app/api/lottery-compare')
+        axios.post('/api/previous-draws', {
+            user_numbers: numbers,
+            start_date: '2014-01-20',
+            end_date: '2014-03-20',
+        })
             .then((response) => {
                 setResults(response.data);
             })
             .catch((error): void => {
-                console.error(error);
+                setError(error.response?.data?.message ?? 'Oops. Something went wrong');
             })
             .finally((): void => {
                 setIsLoading(false);
