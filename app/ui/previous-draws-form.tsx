@@ -20,7 +20,7 @@ const initialFormState: (number|null)[] = [null, null, null, null, null, null, n
 
 export default function PreviousDrawsForm() {
     const [numbers, setNumbers] = useState<Array<number|null>>(initialFormState);
-    const [results, setResults] = useState<Result[]>([]);
+    const [results, setResults] = useState<Result[]|null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string|null>(null);
 
@@ -72,20 +72,24 @@ export default function PreviousDrawsForm() {
                                     {
                                         'bg-white placeholder:text-slate-300': numberIdx < 5,
                                         'bg-purple-200 focus:outline-purple-600 placeholder:text-purple-300': numberIdx >= 5,
+                                        'border-slate-900': !error,
+                                        'border-red-500': error,
                                     },
                                 )}
                             />
                         ))}
                     </div>
+
+                    {error && (<p className="mt-1 text-sm text-red-500">{error}</p>)}
                 </div>
 
                 <div className="w-44">
-                    <Button type="submit" color="blue">Play Now</Button>
+                <Button type="submit" color="blue">Play Now</Button>
                 </div>
             </form>
 
             {/* Result Listing */}
-            {(error || isLoading || Boolean(results.length)) && (
+            {(isLoading || results) && (
                 <div className="relative h-[40rem] overflow-y-scroll">
                     <div className="sticky top-0 z-10 py-5 px-8 bg-slate-50 border-y border-slate-900">
                         <p className="text-3xl font-bold tracking-tight">Prize</p>
@@ -101,17 +105,6 @@ export default function PreviousDrawsForm() {
                         </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-900">
-                        {/* Error State */}
-                        {error && (
-                            <tr>
-                                <td colSpan={4}>
-                                    <div className="flex h-[30rem] flex-col items-center justify-center">
-                                        <p className="text-xl font-bold">{error}</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        )}
-
                         {/* Loading State */}
                         {isLoading && [...Array(10)].map((_, loadingIdx: number) => (
                             <tr key={loadingIdx} className="bg-slate-50">
@@ -129,6 +122,17 @@ export default function PreviousDrawsForm() {
                                 </td>
                             </tr>
                         ))}
+
+                        {/* Empty State */}
+                        {!results.length && (
+                            <tr>
+                                <td colSpan={4}>
+                                    <div className="flex h-[30rem] flex-col items-center justify-center">
+                                        <p className="text-xl font-bold">No results found.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        )}
 
                         {/* Results */}
                         {Boolean(results.length) && results.map((result: Result, resultIdx: number) => (
